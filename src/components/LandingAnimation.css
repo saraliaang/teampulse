@@ -1,0 +1,98 @@
+/* full page container */
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--background-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    z-index: 9999;
+    animation: fadeInBg 1.3s ease-out forwards;
+}
+
+/* soft moving wave */
+.wave {
+    position: absolute;
+    bottom: -30px;
+    width: 200%;
+    height: 160px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    filter: blur(25px);
+    animation: waveMotion 6s ease-in-out infinite;
+}
+
+@keyframes waveMotion {
+    0% {
+        transform: translateX(-20%);
+    }
+
+    50% {
+        transform: translateX(20%);
+    }
+
+    100% {
+        transform: translateX(-20%);
+    }
+}
+
+/* Rising sun */
+.sun {
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, #FCE7C8, #FFD8A8);
+    border-radius: 50%;
+    box-shadow: 0 0 70px rgba(255, 255, 255, 0.6);
+    animation: riseUp 2.3s ease-out forwards;
+}
+
+@keyframes riseUp {
+    0% {
+        transform: translateY(100px) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-50px) scale(1);
+        opacity: 1;
+    }
+}
+
+/* morphing into pulse dot */
+.morph-dot {
+    animation: morphToDot 0.9s ease-out forwards;
+}
+
+@keyframes morphToDot {
+    0% {
+        transform: translateY(-50px) scale(1);
+        border-radius: 50%;
+    }
+
+    50% {
+        transform: translateY(-50px) scale(0.55);
+        background: var(--highlight);
+    }
+
+    100% {
+        transform: translateY(-50px) scale(0.22);
+        background: var(--primary);
+        box-shadow: 0 0 40px rgba(168, 216, 196, 0.7);
+    }
+}
+
+/* fade-out entire screen */
+.fade-out {
+    animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

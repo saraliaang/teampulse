@@ -1,0 +1,66 @@
+.dashboard-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.dashboard-switchview {
+    gap: 1rem;
+    padding: 2rem 0 1rem 0;
+
+}
+
+.dashboard-chooseteam-select-mobile {
+    border: solid 2px var(--primary);
+    border-radius: 20px;
+    padding: var(--space-1);
+    padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    cursor: pointer;
+
+}
+.dashboard-chooseteam-select-mobile:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 128, 96, 0.15);
+}
+
+.dashboard-chooseteam-buttons {
+    display: none;
+}
+
+
+.dashboard-selects {
+    gap: 1rem;
+}
+
+.no-teams-message{
+    font-size: var(--text-lg);
+    color: var(--text-dark);
+    padding-left: var(--text-xl);
+}
+
+@media only screen and (min-width: 800px) {
+    .dashboard-container {
+        padding: 0 20px;
+    }
+
+    .dashboard-switchview {
+        justify-content: flex-end;
+        padding: 0 1rem 2rem 0;
+        display: flex;
+    }
+
+    .dashboard-chooseteam-buttons {
+        gap: 2rem;
+        display: flex;
+
+    }
+
+    .dashboard-chooseteam-select-mobile {
+        display: none;
+    }
+
+
+}

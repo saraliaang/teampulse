@@ -1,0 +1,48 @@
+.signup-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.signup-card {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup-title {
+    text-align: center;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* --- MOBILE  --- */
+@media (max-width: 480px) {
+
+    .signup-page-wrapper {
+        padding: 10px;
+    }
+
+    .signup-card {
+        padding: 20px;       
+        width: 70%;          
+        max-width: 320px;    
+    }
+
+    .signup-form input,
+    .signup-form select,
+    .signup-form button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .signup-title {
+        font-size: 18px;
+    }
+}
+

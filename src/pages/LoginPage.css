@@ -1,0 +1,70 @@
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center; 
+}
+
+.login-background {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    padding-top: 140px; 
+    position: relative;
+    overflow: hidden;
+}
+
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+
+.login-title {
+    text-align: center;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 480px) {
+
+    .header {
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .login-background {
+        padding-top: 100px;
+        align-items: center;
+    }
+
+    .login-card {
+        width: 70%;
+        padding: 20px;
+        max-width: 320px;
+    }
+
+    .login-title {
+        font-size: 18px;
+    }
+
+    .login-card input,
+    .login-card select,
+    .login-card button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,81 @@
+@import './SharedChartStyles.css';
+
+/* Weekly Comparison specific container */
+.weeklyComparisonContainer {
+    flex: 1;
+    background-color: #fffffd;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 768px) {
+    .weeklyComparisonContainer {
+        padding: 1rem;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .weeklyComparisonContainer {
+        padding: 1rem;
+    }
+}
+
+/* Weekly Comparison chart wrapper - centers and pads chart content */
+.weekly-chart-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .weekly-chart-wrapper {
+        padding: 0.3rem;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .weekly-chart-wrapper {
+        flex: 0 1 auto;
+        padding: 5rem 0 0 0;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+/* Weekly Comparison header */
+.weekly-header {
+    margin-bottom: 0.8rem;
+}
+
+.weekly-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-family: var(--font-body);
+}
+
+@media only screen and (max-width: 1200px) {
+    .weekly-header h2 {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .weekly-header h2 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .weekly-header h2 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+}

@@ -1,0 +1,171 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+:root {
+    --background: #fff6ea;
+    --primary: #a8d8c4;
+    --secondary: #CFE8FF;
+    --accent: #FCE7C8;
+    --text-dark: #666666;
+    --secondary-text: #A8D8C4;
+    --highlight: #DAD5F8;
+
+    /* GRADIENTS */
+    --text-gradient-1: linear-gradient(0deg, #f19a5c, #f9db6f);
+    --text-gradient-2: radial-gradient(circle at 0% 0%, #62bfd4, #f1dd76);
+    --background-gradient: linear-gradient(120deg, #FCE7C8, #dbeaf8);
+
+
+    /*TYPOGRAPHY*/
+    --font-display: "Cormorant Garamond", sans-serif;
+    --font-body: "Quicksand", sans-serif;
+    --font-lore: "Cormorant Garamond", sans-serif;
+    --text-xss: 0.68rem;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.75rem;
+    --text-2xl: 2.25rem;
+    --text-3xl: 3rem;
+
+    /* SPACING */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+
+    /* RADIUS */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-full: 999px;
+
+    /* SHADOWS / GLOW */
+    --shadow-soft: 0 0 8px rgba(255, 255, 255, 0.1);
+    --shadow-hard: 0 0 18px rgba(0, 0, 0, 0.5);
+    --glow-accent: 0 0 15px var(--accent);
+    --glow-highlight: 0 0 12px var(--hightlight);
+
+}
+
+/* Sematic Styling */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: transparent;
+}
+
+/* make sure app wrappers aren’t painting white */
+#root,
+.App,
+main {
+    background: transparent;
+}
+
+/* two static gradients */
+html::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(120deg, #FCE7C8, #dbeaf8);
+    opacity: 1;
+}
+
+html::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(10deg, #dbeaf8, #FCE7C8);
+    opacity: 0;
+    animation: fadeB 20s ease-in-out infinite;
+    /* much slower */
+}
+
+@keyframes fadeB {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+
+    /* subtle = less noticeable when it stutters */
+}
+
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 550;
+
+}
+
+p {
+    font-size: var(--text-base);
+    font-weight: 500;
+}
+
+
+/* Utilities Classes */
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.justify-right {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.teampulse-logo {
+    width: clamp(265px, 20vw, 320px);
+    overflow: visible;
+    display: block;
+    padding: var(--space-3);
+}
+
+
+@media only screen and (min-width: 700px) {}

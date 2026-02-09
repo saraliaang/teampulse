@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#cfe3f5"/>
+      <stop offset="60%" stop-color="#e9f2fb"/>
+      <stop offset="100%" stop-color="#f8fbff"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#cfe6d8"/>
+      <stop offset="60%" stop-color="#dbeee2"/>
+      <stop offset="100%" stop-color="#eef6f0"/>
+    </linearGradient>
+    <linearGradient id="pond" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#9ccbe8"/>
+      <stop offset="100%" stop-color="#bfe3f6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="680" fill="url(#sky)"/>
+  <rect y="250" width="1000" height="430" fill="url(#ground)"/>
+
+  <!-- pond near the horizon -->
+  <g opacity="0.9">
+    <ellipse cx="660" cy="420" rx="180" ry="34" fill="url(#pond)"/>
+    <ellipse cx="660" cy="420" rx="150" ry="25" fill="#d9f0ff" opacity="0.6"/>
+  </g>
+
+  <!-- water fountain -->
+  <g opacity="0.9">
+    <ellipse cx="660" cy="408" rx="28" ry="8" fill="#bcdff4"/>
+    <path d="M660 360 C650 380 650 395 660 408 C670 395 670 380 660 360 Z" fill="#cde8f9"/>
+    <path d="M640 382 C630 395 630 404 640 412" stroke="#cde8f9" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8"/>
+    <path d="M680 382 C690 395 690 404 680 412" stroke="#cde8f9" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8"/>
+  </g>
+
+
+  <!-- wooden fence (farm-style) -->
+  <g fill="#d7c3a3" opacity="0.9">
+    <rect x="80" y="280" width="840" height="6" rx="3"/>
+    <rect x="80" y="298" width="840" height="6" rx="3"/>
+    <rect x="110" y="250" width="14" height="70" rx="3"/>
+    <rect x="190" y="250" width="14" height="70" rx="3"/>
+    <rect x="270" y="250" width="14" height="70" rx="3"/>
+    <rect x="350" y="250" width="14" height="70" rx="3"/>
+    <rect x="430" y="250" width="14" height="70" rx="3"/>
+    <rect x="510" y="250" width="14" height="70" rx="3"/>
+    <rect x="590" y="250" width="14" height="70" rx="3"/>
+    <rect x="670" y="250" width="14" height="70" rx="3"/>
+    <rect x="750" y="250" width="14" height="70" rx="3"/>
+    <rect x="830" y="250" width="14" height="70" rx="3"/>
+  </g>
+
+  <!-- garden chair -->
+  <g fill="#caa682" opacity="0.95" transform="translate(360, 0)">
+    <rect x="150" y="442" width="170" height="14" rx="7"/>
+    <rect x="165" y="392" width="120" height="54" rx="8"/>
+    <rect x="168" y="410" width="6" height="36" rx="3"/>
+    <rect x="188" y="410" width="6" height="36" rx="3"/>
+    <rect x="208" y="410" width="6" height="36" rx="3"/>
+    <rect x="228" y="410" width="6" height="36" rx="3"/>
+    <rect x="165" y="458" width="12" height="52" rx="4"/>
+    <rect x="308" y="458" width="12" height="52" rx="4"/>
+    <rect x="150" y="410" width="12" height="100" rx="4"/>
+    <rect x="308" y="410" width="12" height="100" rx="4"/>
+  </g>
+</svg>

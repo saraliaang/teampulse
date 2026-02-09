@@ -1,0 +1,52 @@
+.userstats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 0;
+}
+
+/* LEFT + RIGHT blocks */
+.userstats-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+.userstats-value {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 0.4rem;
+}
+
+.userstats-label {
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+/* CENTER BADGE (Mindful Weeks) */
+.userstats-badge {
+    flex: 1;
+    background: var(--background-gradient);
+    border-radius: 20px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.badge-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.badge-label {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-top: 0.2rem;
+    opacity: 0.9;
+}

@@ -1,0 +1,43 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: var(--text-dark);
+}
+
+.error-box {
+    background: #ffe5e5;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ffb3b3;
+    color: #d40000;
+    font-size: 14px;
+}
+
+/* Wrapper for each label + input pair */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    background: #f5f5f5;
+}
+
+/* Submit button styling */
+.login-button {
+    margin-top: 10px;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
