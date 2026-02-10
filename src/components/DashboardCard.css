@@ -37,6 +37,12 @@
     gap: 0.5rem;
 }
 
+.card-number-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
 .change-indicator {
     display: inline-flex;
     align-items: center;

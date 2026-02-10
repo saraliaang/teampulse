@@ -52,7 +52,8 @@ DESKTOP (default)
     display: flex;
     gap: 3rem;
     margin-top: 2rem;
-    width: 90%;
+    width: 84vw;
+    max-width: 1300px;
     align-items: stretch;
     justify-content: center;
 }
@@ -68,6 +69,7 @@ DESKTOP (default)
 
 .workload-row {
     margin-top: 2rem;
+    margin-bottom:6rem;
 }
 
 

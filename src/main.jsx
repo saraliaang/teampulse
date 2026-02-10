@@ -19,15 +19,16 @@ import NotFoundPage from "./pages/404Page.jsx";
 
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage />,
-  },
+  // {
+  //   path: "/",
+  //   element: <HomePage />,
+  // },
 
   {
     path: '/',
     element: <NavBar />,
     children: [
+      {path:'/', element: <HomePage />},
       { path: "/signup", element: <SignupPage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/checkin", element: <CheckInPage /> },

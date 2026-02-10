@@ -1,13 +1,13 @@
 .needs-attention-box {
     background-color: #ffffff;
     border-radius: 12px;
-    padding: 2rem;
+    padding: 1.5rem;
     margin: 2rem 0;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    border-left: 5px solid #f97316;
-    width: 81vw;
-    max-width: 1300px;
-    
+    border-left: 5px solid #fa965d;
+    width: 84vw;
+    max-width: 1360px;
+    box-sizing: border-box;
 }
 
 .attention-header {
@@ -19,7 +19,7 @@
 
 .attention-icon {
     font-size: 1.5rem;
-    color: #f97316;
+    color: #fa965d;
 }
 
 .attention-header h3 {
@@ -51,6 +51,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    margin-bottom: 0.5rem;
     border-radius: 8px;
     border-left: 4px solid;
     background-color: rgba(255, 255, 255, 0.5);

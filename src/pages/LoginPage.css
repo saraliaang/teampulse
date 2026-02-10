@@ -9,15 +9,17 @@
 }
 
 .login-background {
-    min-height: 100vh;
-    width: 100vw;
+    min-height: 100dvh;
+    height: 100dvh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
-    padding-top: 140px; 
+    justify-content: flex-start;
+    padding-top: 90px;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 
@@ -35,7 +37,7 @@
 .login-title {
     text-align: center;
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 /* --- MOBILE --- */
@@ -47,7 +49,7 @@
     }
 
     .login-background {
-        padding-top: 100px;
+        padding-top: 20vh;
         align-items: center;
     }
 

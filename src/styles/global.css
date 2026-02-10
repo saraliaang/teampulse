@@ -165,6 +165,7 @@ p {
     overflow: visible;
     display: block;
     padding: var(--space-3);
+    padding-left: 0;
 }
 
 

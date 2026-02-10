@@ -12,12 +12,12 @@ const chartConfig = {
   mood: {
     title: "Mood Mix - current week",
     // Peach/orange gradient: Angry (darkest) → Anxious → Calm → Empowered (lightest)
-    colors: ["#6B3D2F", "#9B5843", "#D4845E", "#F4C5A0"]
+    colors: ["#8a5a44", "#b07d62", "#d69f7e", "#edc4b3"]
   },
   workload: {
     title: "Workload Mix - current week",
     // Blue gradient: Overwhelmed (darkest) → Under Pressure → Manageable → Light (lightest)
-    colors: ["#2D4A7A", "#4A6B9F", "#6B8FC7", "#9DB4E0"]
+    colors: ["#415d43", "#709775", "#8fb996", "#a1cca5"]
   }
 };
 
@@ -152,7 +152,7 @@ export default function PieChart({ chartType = "workload", logs = [], isLoading 
                   padding: isMobile ? 10 : 20,
                   font: {
                     size: isMobile ? 13 : 16,
-                    weight: '600'
+                    weight: '400'
                   }
                 }
               },

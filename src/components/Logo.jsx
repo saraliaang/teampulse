@@ -10,7 +10,7 @@ export default function Logo({ size = 100 }) {
         >
             {/* Logo Text */}
             <text
-                x='5%'
+                x='0'
                 y="70%"
                 textAnchor="start"
                 dominantBaseline="middle"

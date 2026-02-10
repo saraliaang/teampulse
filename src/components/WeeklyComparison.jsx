@@ -14,8 +14,8 @@ const chartConfig = {
             3: "Calm",
             4: "Empowered",
         },
-        lineColor: "#9B5843",      // Second darkest peach
-        currentWeekColor: "#6B3D2F" // Darkest peach
+        lineColor: "#d69f7e",      // Second darkest peach
+        currentWeekColor: "#b07d62" // Darkest peach
     },
     workload: {
         title: "Weekly trend for Average Team Workload",
@@ -27,8 +27,8 @@ const chartConfig = {
             3: "Manageable",
             4: "Light",
         },
-        lineColor: "#4A6B9F",      // Second darkest blue
-        currentWeekColor: "#2D4A7A" // Darkest blue
+        lineColor: "#8fb996",      // Second darkest blue
+        currentWeekColor: "#709775" // Darkest blue
     }
 };
 
@@ -48,9 +48,9 @@ const WeeklyComparison = ({ isAnimationActive = true, logs = [], chartType = "mo
         
         let color = '#333';
         if (value === 3 || value === 4) {
-            color = '#6FA876'; // Desaturated green
+            color = '#8fb996'; // Desaturated green
         } else if (value === 1 || value === 2) {
-            color = '#C97A7A'; // Desaturated red
+            color = '#b07d62'; // Desaturated red
         }
         
         return (
@@ -60,7 +60,7 @@ const WeeklyComparison = ({ isAnimationActive = true, logs = [], chartType = "mo
                     y={0} 
                     dy={4}
                     textAnchor="end" 
-                    fontSize={isMobile ? 15 : 17}
+                    fontSize={isMobile ? 13 : 15}
                     fill={color}
                     style={{ fontWeight: '500' }}
                 >
@@ -136,12 +136,12 @@ const WeeklyComparison = ({ isAnimationActive = true, logs = [], chartType = "mo
         if (isLoading) {
             // Don't show anything while loading
             return (
-                <div className='weeklyComparisonContainer'>
-                    <div className='weekly-header'>
-                        <h2 className='headline'>
-                            {chartType === "mood" ? "Mood Weekly Trend" : "Workload Trend"}
-                        </h2>
-                    </div>
+        <div className={`weeklyComparisonContainer weeklyComparisonContainer--${chartType}`}>
+            <div className='weekly-header'>
+                <h2 className='headline'>
+                    {chartType === "mood" ? "Mood Weekly Trend" : "Workload Trend"}
+                </h2>
+            </div>
                 </div>
             );
         }
@@ -149,7 +149,7 @@ const WeeklyComparison = ({ isAnimationActive = true, logs = [], chartType = "mo
         // Only show error message if we have logs but no data (after loading)
         if (logs && logs.length > 0) {
             return (
-                <div className='weeklyComparisonContainer'>
+                <div className={`weeklyComparisonContainer weeklyComparisonContainer--${chartType}`}>
                     <p style={{ textAlign: 'center', padding: '20px', color: '#999' }}>No data available. Waiting for team check-ins...</p>
                 </div>
             );
@@ -157,7 +157,7 @@ const WeeklyComparison = ({ isAnimationActive = true, logs = [], chartType = "mo
         
         // Show empty state if still loading or no logs yet
         return (
-            <div className='weeklyComparisonContainer'>
+            <div className={`weeklyComparisonContainer weeklyComparisonContainer--${chartType}`}>
                 <div className='weekly-header'>
                     <h2 className='headline'>
                         {chartType === "mood" ? "Mood Weekly Trend" : "Workload Trend"}
@@ -172,7 +172,7 @@ const WeeklyComparison = ({ isAnimationActive = true, logs = [], chartType = "mo
         : "Workload Pattern - four week comparison";
     
     return (
-        <div className='weeklyComparisonContainer'>
+        <div className={`weeklyComparisonContainer weeklyComparisonContainer--${chartType}`}>
             <div className='weekly-header'>
                 <h2 className='headline'>
                     {titleText}
@@ -185,23 +185,29 @@ const WeeklyComparison = ({ isAnimationActive = true, logs = [], chartType = "mo
                     width: isMobile ? '100%' : '75%',
                     maxWidth: '6000px',
                     maxHeight: '50vh',
-                    aspectRatio: 1.68,
+                    aspectRatio: 1.2,
                 }}
-                margin={{ top: 10, right: 10, left: isMobile ? 60 : 70, bottom: isMobile ? 30 : 15 }}
+                margin={{ top: 6, right: 12, left: isMobile ? 14 : 24, bottom: 0 }}
                 data={chartData}
             >
-                <CartesianGrid strokeDasharray="3 3" />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.08)" vertical={false} />
 
-                <XAxis dataKey="week" tick={{ fontSize: isMobile ? 16 : 18 }} />
+                <XAxis
+                    dataKey="week"
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fontSize: isMobile ? 14 : 16, fontFamily: 'var(--font-body)' }}
+                    tickMargin={4}
+                />
 
                 <YAxis
-                    width={isMobile ? 60 : 120}
+                    width={isMobile ? 45 : 80}
                     domain={[1, 4]}
                     ticks={[1, 2, 3, 4]}
                     tickLine={false}
                     axisLine={false}
                     tick={<CustomYAxisTick />}
-                    padding={{ bottom: 20 }}
+                    padding={{ bottom: 35 }}
                 />
 
                 <Tooltip 
@@ -212,9 +218,11 @@ const WeeklyComparison = ({ isAnimationActive = true, logs = [], chartType = "mo
                                 <div style={{ 
                                     backgroundColor: '#fff', 
                                     padding: '8px 12px', 
-                                    borderRadius: '4px', 
-                                    border: '1px solid #ccc',
-                                    fontSize: '12px'
+                                    borderRadius: '12px', 
+                                    border: 'none',
+                                    boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
+                                    fontSize: '12px',
+                                    fontFamily: 'var(--font-body)'
                                 }}>
                                     <p style={{ margin: '0 0 4px 0', fontWeight: '600' }}>{payload[0].payload.week}</p>
                                     <p style={{ margin: '0', color: '#666' }}>Average: {payload[0].value}</p>
