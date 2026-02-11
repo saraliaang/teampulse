@@ -1,3 +1,5 @@
+import getISOWeekNumber from "../utils/getISOWeekNumber";
+
 async function getNeedsAttention() {
     const currentDate = new Date();
     const weekNumber = getISOWeekNumber(currentDate);
@@ -52,20 +54,6 @@ async function getNeedsAttention() {
     );
 
     return [...new Map(usersWithDetails.map(item => [item.user, item])).values()];
-}
-
-function getISOWeekNumber(date) {
-    const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-    const dayNum = d.getUTCDay() || 7;
-    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-
-    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-    const year = d.getUTCFullYear();
-    
-    const week = Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
-    const weekPadded = String(week).padStart(2, "0");
-
-    return `${year}${weekPadded}`;
 }
 
 export default getNeedsAttention;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -13,6 +12,7 @@ import CheckInPage from "./pages/CheckInPage.jsx";
 import ManagerDashboardPage from "./pages/ManagerDashboardPage.jsx";
 import NavBar from './components/NavBar.jsx';
 import ManagerOnly from "./components/ManagerOnly";
+import PublicOnly from "./components/PublicOnly.jsx";
 import UserDashboardPage from "./pages/UserDashboardPage.jsx";
 import PermissionDeniedPage from "./pages/PermissionDeniedPage";
 import NotFoundPage from "./pages/404Page.jsx";
@@ -28,9 +28,30 @@ const router = createBrowserRouter([
     path: '/',
     element: <NavBar />,
     children: [
-      {path:'/', element: <HomePage />},
-      { path: "/signup", element: <SignupPage /> },
-      { path: "/login", element: <LoginPage /> },
+      {
+        path: '/',
+        element: (
+          <PublicOnly>
+            <HomePage />
+          </PublicOnly>
+        ),
+      },
+      {
+        path: "/signup",
+        element: (
+          <PublicOnly>
+            <SignupPage />
+          </PublicOnly>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <PublicOnly>
+            <LoginPage />
+          </PublicOnly>
+        ),
+      },
       { path: "/checkin", element: <CheckInPage /> },
       { path: "/user-dashboard", element: <UserDashboardPage /> },
       {

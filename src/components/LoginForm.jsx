@@ -2,26 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 import { useAuth } from "../hooks/use-auth";
-
-// ISO week helper
-function getISOWeekNumber(date = new Date()) {
-    const target = new Date(date.valueOf());
-    const dayNr = (date.getDay() + 6) % 7;
-    target.setDate(target.getDate() - dayNr + 3);
-
-    const firstThursday = new Date(target.getFullYear(), 0, 4);
-
-    const weekNumber =
-        1 +
-        Math.round(
-            ((target - firstThursday) / 86400000 -
-                3 +
-                ((firstThursday.getDay() + 6) % 7)) /
-                7
-        );
-
-    return weekNumber;
-}
+import getISOWeekNumber from "../utils/getISOWeekNumber.js";
 
 function LoginForm() {
     const [username, setUsername] = useState("");
@@ -90,9 +71,7 @@ function LoginForm() {
 
             // 🔹 7. Determine current year-week
             const now = new Date();
-            const weekIndex = getISOWeekNumber(now);
-            const paddedWeek = String(weekIndex).padStart(2, "0");
-            const currentYearWeek = Number(`${now.getFullYear()}${paddedWeek}`);
+            const currentYearWeek = Number(getISOWeekNumber(now));
 
             // 🔹 8. Logs check
             if (!userData.logged_pulses || userData.logged_pulses.length === 0) {
