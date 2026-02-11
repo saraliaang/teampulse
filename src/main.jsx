@@ -14,6 +14,7 @@ import NavBar from './components/NavBar.jsx';
 import ManagerOnly from "./components/ManagerOnly";
 import PublicOnly from "./components/PublicOnly.jsx";
 import IfCheckedIn from "./components/IfCheckedIn.jsx";
+import CustomCursor from "./components/CustomCursor.jsx";
 import UserDashboardPage from "./pages/UserDashboardPage.jsx";
 import PermissionDeniedPage from "./pages/PermissionDeniedPage";
 import NotFoundPage from "./pages/404Page.jsx";
@@ -118,6 +119,7 @@ function AppRoot() {
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
+      <CustomCursor />
       <AppRoot />
     </AuthProvider>
   </React.StrictMode>

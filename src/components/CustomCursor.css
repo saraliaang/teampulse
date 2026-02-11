@@ -1,0 +1,20 @@
+.custom-cursor-enabled,
+.custom-cursor-enabled * {
+    cursor: none !important;
+}
+
+.custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 0 3px rgba(168, 216, 196, 0.25);
+    transform: translate3d(-100px, -100px, 0);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 120ms ease-out;
+}
