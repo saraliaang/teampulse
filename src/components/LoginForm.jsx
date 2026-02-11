@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 import { useAuth } from "../hooks/use-auth";
-import getISOWeekNumber from "../utils/getISOWeekNumber.js";
 
 function LoginForm() {
     const [username, setUsername] = useState("");
@@ -69,29 +68,8 @@ function LoginForm() {
                 return;
             }
 
-            // 🔹 7. Determine current year-week
-            const now = new Date();
-            const currentYearWeek = Number(getISOWeekNumber(now));
-
-            // 🔹 8. Logs check
-            if (!userData.logged_pulses || userData.logged_pulses.length === 0) {
-                console.log("No logs found for this user.");
-            }
-
-            console.log("🔥 userData.logged_pulses:", userData.logged_pulses);
-
-            const hasCheckedIn = userData.logged_pulses?.some((pulse) => {
-                // console.log("pulse.year_week:", pulse.year_week);
-                // console.log("currentYearWeek:", currentYearWeek);
-                return pulse.year_week === currentYearWeek;
-            });
-
-            // 🔹 9. Redirect based on check-in status
-            if (hasCheckedIn) {
-                navigate("/user-dashboard");
-            } else {
-                navigate("/checkin");
-            }
+            // Non-manager users are routed through IfCheckedIn guard.
+            navigate("/user-dashboard");
 
         } catch (err) {
             console.error(err);

@@ -13,6 +13,7 @@ import ManagerDashboardPage from "./pages/ManagerDashboardPage.jsx";
 import NavBar from './components/NavBar.jsx';
 import ManagerOnly from "./components/ManagerOnly";
 import PublicOnly from "./components/PublicOnly.jsx";
+import IfCheckedIn from "./components/IfCheckedIn.jsx";
 import UserDashboardPage from "./pages/UserDashboardPage.jsx";
 import PermissionDeniedPage from "./pages/PermissionDeniedPage";
 import NotFoundPage from "./pages/404Page.jsx";
@@ -52,8 +53,22 @@ const router = createBrowserRouter([
           </PublicOnly>
         ),
       },
-      { path: "/checkin", element: <CheckInPage /> },
-      { path: "/user-dashboard", element: <UserDashboardPage /> },
+      {
+        path: "/checkin",
+        element: (
+          <IfCheckedIn requireCheckedIn={false}>
+            <CheckInPage />
+          </IfCheckedIn>
+        ),
+      },
+      {
+        path: "/user-dashboard",
+        element: (
+          <IfCheckedIn requireCheckedIn={true}>
+            <UserDashboardPage />
+          </IfCheckedIn>
+        ),
+      },
       {
         path: "/no-permission",
         element: <PermissionDeniedPage />,
