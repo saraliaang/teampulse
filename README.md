@@ -1,6 +1,24 @@
 # TeamPulse Frontend
-
 Teampulse is a wellbeing intelligence platform designed to help teams surface emotional trends early, support psychological safety, and make healthier workload decisions. 
+
+
+👉 **Deoloyed frontend site:** https://team-pulse-app.netlify.app/
+
+👉 **Backend API:** https://team-pulse-backend-0b5487e17768.herokuapp.com
+
+## 🎥 Role-Based Experience
+
+> **Manager Experience:** A desktop-oriented dashboard providing real-time team insights, emotional trend visibility, and early risk detection.
+
+> **Team Member Experience:** A lightweight check-in flow designed for quick reflection, paired with a personal dashboard and gamified wellbeing garden.
+
+
+<p align="center">
+  <img src="./docs/teampulse-manager-flow.gif" width="76.8%" />
+  <img src="./docs/teampulse-user-flow.gif" width="22.5%" />
+</p>
+
+
 
 ## Table of Content
 
