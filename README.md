@@ -105,70 +105,56 @@ A pairing of expressive display type and highly legible body text supports both 
 
 ## Project Structure
 
-```
+```text
 src/
-├── api/                 # API endpoint functions
+├── api/                        # API endpoint modules
 │   ├── get-checkins-by-week.js
+│   ├── get-checkins-history.js
 │   ├── get-moods.js
+│   ├── get-needs-attention.js
+│   ├── get-points.js
+│   ├── get-rewards.js
 │   ├── get-teams.js
-│   ├── get-user-by-id.js
 │   ├── get-workloads.js
 │   ├── post-createcheckin.js
+│   ├── post-points.js
 │   └── post-signup.js
-├── components/          # Reusable React components
-│   ├── AllCheckinView.jsx     # View all check-ins
-│   ├── AuthProvider.jsx       # Authentication context
-│   ├── ButtonComponent.jsx    # Reusable button
-│   ├── CardIcon.jsx
-│   ├── CheckInForm.jsx        # Check-in submission form
-│   ├── DashboardButton.jsx    # Dashboard navigation
-│   ├── DashboardCard.jsx      # Dashboard card display
-│   ├── DashboardView.jsx      # Manager dashboard view
-│   ├── LandingAnimation.jsx   # Landing page animations
-│   ├── Loader.jsx             # Loading spinner
-│   ├── LoginForm.jsx          # Login form
-│   ├── Logo.jsx               # Logo component
-│   ├── Logout.jsx
-│   ├── ManagerOnly.jsx        # Manager access guard
-│   ├── NavBar.jsx             # Navigation bar
-│   ├── NeedsAttention.jsx     # Alert component
-│   ├── PieChart.jsx           # Pie chart visualization
-│   ├── WeeklyComparison.jsx   # Weekly trend charts
-│   └── user/                  # User-specific components
-│       ├── UserCheckins.jsx       # User check-in history
-│       ├── UserDashboard.jsx      # User dashboard
-│       ├── UserQuote.jsx
-│       ├── UserStats.jsx
-│       └── UserWeeklyComparison.jsx
-├── pages/               # Page components
-│   ├── 404Page.jsx
-│   ├── CheckInPage.jsx        # Check-in form page
-│   ├── HomePage.jsx           # Landing page
-│   ├── LoginPage.jsx
-│   ├── ManagerDashboardPage.jsx
-│   ├── PermissionDeniedPage.jsx
-│   ├── SignupPage.jsx
-│   └── UserDashboardPage.jsx
-├── hooks/               # Custom React hooks
+├── assets/                     # Static artwork and garden assets
+├── components/                 # Reusable UI components
+│   ├── *.jsx / *.css
+│   └── user/                   # User dashboard specific components
+├── data/                       # Mock data for development
+├── hooks/                      # Custom React hooks
 │   ├── use-auth.js
 │   ├── use-checkins.js
+│   ├── use-checkins-history.js
 │   ├── use-moods.js
+│   ├── use-needs-attention.js
+│   ├── use-points.js
+│   ├── use-post-point.js
+│   ├── use-rewards.js
 │   ├── use-teams.js
-│   ├── use-user.js
 │   └── use-workloads.js
-├── data/                # Mock data for development
-│   ├── mockForTeamMood.js
-│   ├── mockForTeamWorkflow.js
-│   ├── mockPulseLogs.js
-│   └── mockTeams.js
-├── styles/              # Global styles
+├── pages/                      # Route-level page components
+│   ├── 404Page.jsx / 404Page.css
+│   ├── CheckInPage.jsx / CheckInPage.css
+│   ├── HomePage.jsx / HomePage.css
+│   ├── LoginPage.jsx / LoginPage.css
+│   ├── ManagerDashboardPage.jsx / ManagerDashboardPage.css
+│   ├── PermissionDeniedPage.jsx / PermissionDeniedPage.css
+│   ├── SignupPage.jsx / SignupPage.css
+│   └── UserDashboardPage.jsx / UserDashboardPage.css
+├── styles/
 │   └── global.css
-├── assets/              # Static assets
-├── main.jsx             # Application entry point
-└── App.jsx              # Root component
+├── utils/
+│   └── userPoints.js
+└── main.jsx                    # App entry point and router mounting
 
 public/
-└── _redirects           # Netlify routing configuration
+├── _redirects                  # SPA redirect rules
+└── vite.svg
+
+netlify.toml                     # Netlify build + redirect config
 ```
 
 ## Technical Implementation
@@ -208,7 +194,7 @@ This balance helps prevent duplication while keeping the codebase approachable f
 
 ### Prerequisites
 
-- Node.js 16+ 
+- Node.js 20.19+ (or 22.12+)
 - npm or yarn package manager
 
 ### Installation
@@ -216,7 +202,7 @@ This balance helps prevent duplication while keeping the codebase approachable f
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd teampulse-frontend
+cd teampulse
 ```
 
 2. Install dependencies:
