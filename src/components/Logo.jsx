@@ -25,7 +25,7 @@ export default function Logo({ size = 100 }) {
 
             {/* Pulse Dot */}
             <circle
-                cx="435"
+                cx="377"
                 cy="140"
                 r="22"
                 className="pulse-dot"
