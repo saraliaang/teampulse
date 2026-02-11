@@ -18,9 +18,10 @@ Teampulse is a wellbeing intelligence platform designed to help teams surface em
   <img src="./docs/teampulse-user-flow.gif" width="22.5%" />
 </p>
 
+
 <p align="center">
   <img src="./docs/manager-dashboard.png" width="76.8%" />
-  <img src="./docs/user-flow.png" width="22.5%" />
+  <img src="./docs/user-flow.png" width="76.8%" />
 </p>
 
 
