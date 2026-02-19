@@ -7,11 +7,15 @@ Teampulse is a wellbeing intelligence platform designed to help teams surface em
 👉 **Backend API:** https://team-pulse-backend-0b5487e17768.herokuapp.com
 
 ## 🎥 Role-Based Experience
+Log in and explore the different role-based views  using demo credentials:
 
 > **Manager Experience:** A desktop-oriented dashboard providing real-time team insights, emotional trend visibility, and early risk detection.
 
+- Username: talren | Password: admin
+
 > **Team Member Experience:** A lightweight check-in flow designed for quick reflection, paired with a personal dashboard and gamified wellbeing garden.
 
+- Username: demo | Password: user
 
 <p align="center">
   <img src="./docs/teampulse-manager-flow.gif" width="76.8%" />
@@ -43,20 +47,20 @@ Teampulse is a wellbeing intelligence platform designed to help teams surface em
 
 ##  Design Decisions
 
-**Designing for Psychological Safety**  
-Because mood and workload are sensitive topics, the interface was intentionally crafted to reduce emotional friction through supportive language, calm visuals, and low-cognitive-load interactions — encouraging honesty without creating pressure.
+> **The Problem** : Traditional workplace wellbeing tools struggle to foster genuine openness. They often feel like intrusive corporate data collection rather than psychologically safe spaces for employees.
 
-**Gamification Without Competition**  
-Instead of leaderboards, TeamPulse reinforces intrinsic motivation through personal streaks and garden growth. The focus is consistency, not comparison — aligning engagement mechanics with the app’s wellbeing goals.
+
+**Designing for Trust & Psychological Safety**  
+Because mood is a sensitive metric, the interface uses calm visuals and supportive language to reduce emotional friction. More importantly, we enforced scoped visibility. Managers only have access to data for their direct team members. This preserves organizational boundaries and ensures the app feels like a support tool, not surveillance.
+
+**Frictionless Rituals (Reducing Cognitive Load)**  
+If a wellbeing app is stressful or tedious to use, it fails. We designed the weekly check-ins to be fast and highly repeatable. On the manager side, complex team data is translated into clean, digestible visualizations, allowing them to spot burnout patterns at a glance without digging through spreadsheets.
 
 **Scoped Visibility for Managers**  
 Managers have access to detailed check-in data for members within their own teams, enabling meaningful insight while preserving organizational boundaries. Team-level scoping ensures that sensitive wellbeing information remains contextually relevant and is not exposed across unrelated groups.
 
-**Reducing Cognitive Load**  
-Check-ins are designed to be quick and repeatable. Clear interaction patterns and digestible visualizations help users complete tasks effortlessly while enabling managers to recognize patterns at a glance.
-
-**Supporting Behavioral Change — Not Just Measurement**  
-Rather than functioning purely as a tracking tool, TeamPulse encourages reflective habits through weekly rituals and subtle reinforcement, helping teams move from awareness toward healthier working dynamics.
+**Healthy Gamification & Behavioral Chang**  
+Instead of using toxic corporate leaderboards, Teampulse drives engagement through a personal "Mental Garden." It rewards personal streaks and consistency rather than comparing users to one another. This reinforces intrinsic motivation, shifting the platform from a simple tracking tool into a space that builds genuine reflective habits.
 
 
 ##  Key Features
@@ -65,11 +69,12 @@ Rather than functioning purely as a tracking tool, TeamPulse encourages reflecti
 - **Manager Intelligence Dashboard** — Surface team trends, distribution patterns, and early risk signals  
 - **Personal Wellness Dashboard** — Individual insights including history, streaks, and reflections  
 - **Trend Visualization** — 4-week comparisons to help teams understand directional change  
+- **Responsive Interface** — Designed for clarity across desktop and mobile
 - **Needs Attention Alerts** — Highlight potential wellbeing risks for proactive support  
 - **Gamified Engagement** — Points, streaks, and garden progression encourage consistent participation  
 - **Role-Based Access Control** — Distinct manager and team member experiences  
 - **Secure Authentication** — Token-based login and protected routes  
-- **Responsive Interface** — Designed for clarity across desktop and mobile
+- **Strategic Route Guarding:** — Engineered conditional navigation in React Router, locking the main dashboard behind a hasCheckedIn state to organically drive weekly engagement.
 
 
 ##  Experience & Interface
