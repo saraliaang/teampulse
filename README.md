@@ -59,7 +59,7 @@ If a wellbeing app is stressful or tedious to use, it fails. We designed the wee
 **Scoped Visibility for Managers**  
 Managers have access to detailed check-in data for members within their own teams, enabling meaningful insight while preserving organizational boundaries. Team-level scoping ensures that sensitive wellbeing information remains contextually relevant and is not exposed across unrelated groups.
 
-**Healthy Gamification & Behavioral Chang**  
+**Healthy Gamification & Behavioral Change**  
 Instead of using toxic corporate leaderboards, Teampulse drives engagement through a personal "Mental Garden." It rewards personal streaks and consistency rather than comparing users to one another. This reinforces intrinsic motivation, shifting the platform from a simple tracking tool into a space that builds genuine reflective habits.
 
 
@@ -200,14 +200,12 @@ Authorization is role-driven:
 
 This structure keeps permission logic explicit while maintaining a predictable user experience.
 
-### Data Flow
+### Single Page Application (SPA) Architecture: 
+Engineered a seamless, no-reload user experience using React. Core interfaces—such as the Weekly Check-in form, the Mental Garden, and the Manager Dashboard—are conditionally rendered based on user state, ensuring lightning-fast navigation.
 
-The application follows a unidirectional data flow:
 
-1. User interactions trigger API requests via dedicated service modules  
-2. Custom hooks handle data fetching and normalization  
-3. State updates propagate through the component tree  
-4. Visualizations render derived insights for immediate interpretation  
+### State-Driven Data Visualization: 
+Managed complex component state within the Manager Dashboard to allow dynamic context switching. Managers can toggle between different teams, instantly re-rendering the overview metrics and graphs for the selected team without triggering a page reload.
 
 This approach reduces side effects and keeps data behavior predictable across the interface.
 
