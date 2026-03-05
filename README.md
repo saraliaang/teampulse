@@ -1,10 +1,22 @@
-# TeamPulse Frontend
+# teampulse Frontend
 Teampulse is a wellbeing intelligence platform designed to help teams surface emotional trends early, support psychological safety, and make healthier workload decisions. 
-
 
 👉 **Deoloyed frontend site:** https://team-pulse-app.netlify.app/
 
 👉 **Backend API:** https://team-pulse-backend-0b5487e17768.herokuapp.com
+
+
+<div align="center">
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
+  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python" />
+  <img src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" />
+</div>
+
 
 ## 🎥 Role-Based Experience
 Log in and explore the different role-based views  using demo credentials:
