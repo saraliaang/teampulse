@@ -10,7 +10,7 @@ export async function createCheckIn(payload, token) {
     workload: Number(payload.workload),
     comment: payload.comment || "",
     team: Number(payload.team),  // <- pega do payload, não de auth
-    timestamp_local: payload.timestamp || new Date().toISOString(),
+    timestamp_local: payload.timestamp_local || new Date().toISOString(),
     };
 
     const response = await fetch(url, {
