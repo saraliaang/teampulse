@@ -36,6 +36,10 @@ export default function IfCheckedIn({ children, requireCheckedIn = true }) {
 
             setIsChecking(true);
             const currentYearWeek = getISOWeekNumber(new Date());
+            const loggedPulses = auth.user?.logged_pulses ?? [];
+            const checkedInFromAuth = loggedPulses.some(
+                (pulse) => String(pulse?.year_week) === currentYearWeek
+            );
             const state = location.state ?? {};
             const justCheckedInFromState =
                 requireCheckedIn &&
@@ -44,45 +48,9 @@ export default function IfCheckedIn({ children, requireCheckedIn = true }) {
                 Number.isFinite(state?.justCheckedInAt) &&
                 Date.now() - state.justCheckedInAt <= JUST_CHECKED_IN_WINDOW_MS;
 
-            try {
-                const fetchCheckedInFromApi = async () => {
-                    const response = await fetch(
-                        `${import.meta.env.VITE_API_URL}/users/${auth.user.id}`,
-                        {
-                            headers: {
-                                Authorization: `Token ${auth.token}`,
-                            },
-                        }
-                    );
-
-                    if (!response.ok) {
-                        throw new Error("Failed to load user check-ins");
-                    }
-
-                    const userData = await response.json();
-                    const loggedPulses = userData?.logged_pulses ?? [];
-                    return loggedPulses.some(
-                        (pulse) => String(pulse?.year_week) === currentYearWeek
-                    );
-                };
-
-                let checkedInThisWeek = await fetchCheckedInFromApi();
-                if (!checkedInThisWeek && requireCheckedIn) {
-                    await new Promise((resolve) => setTimeout(resolve, 800));
-                    checkedInThisWeek = await fetchCheckedInFromApi();
-                }
-
-                if (isActive) {
-                    setHasCheckedIn(checkedInThisWeek || justCheckedInFromState);
-                }
-            } catch (error) {
-                if (isActive) {
-                    setHasCheckedIn(justCheckedInFromState);
-                }
-            } finally {
-                if (isActive) {
-                    setIsChecking(false);
-                }
+            if (isActive) {
+                setHasCheckedIn(checkedInFromAuth || justCheckedInFromState);
+                setIsChecking(false);
             }
         }
 

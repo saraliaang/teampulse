@@ -20,7 +20,7 @@ export default function CheckInForm() {
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
-    const { auth, loading } = useAuth();
+    const { auth, setAuth, loading } = useAuth();
     const { refreshPoints } = usePoints();
     const { submitPoints } = usePostPoint();
 
@@ -53,6 +53,34 @@ export default function CheckInForm() {
         const localDate = new Date(year, month, day, hour, minute, second, ms);
 
         return localDate.toISOString(); // correct UTC that matches local time
+    }
+
+    async function fetchFreshUser(retryCount = 0) {
+        const response = await fetch(
+            `${import.meta.env.VITE_API_URL}/users/${auth.user.id}`,
+            {
+                headers: {
+                    Authorization: `Token ${auth.token}`,
+                },
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Unable to refresh your check-in data.");
+        }
+
+        const userData = await response.json();
+        const currentYearWeek = getISOWeekNumber(new Date());
+        const hasCurrentWeekPulse = (userData?.logged_pulses ?? []).some(
+            (pulse) => String(pulse?.year_week) === currentYearWeek
+        );
+
+        if (!hasCurrentWeekPulse && retryCount < 1) {
+            await new Promise((resolve) => setTimeout(resolve, 800));
+            return fetchFreshUser(retryCount + 1);
+        }
+
+        return userData;
     }
 
     const handleSubmit = async (e) => {
@@ -98,6 +126,11 @@ export default function CheckInForm() {
         try {
             // 1) Create the check-in first (required before any points update).
             await createCheckIn(payload, auth.token);
+            const freshUser = await fetchFreshUser();
+            setAuth((prev) => ({
+                ...prev,
+                user: freshUser,
+            }));
             setSuccessMessage("Thank you for checking in.");
             setMood(null);
             setWorkload(null);
@@ -114,21 +147,7 @@ export default function CheckInForm() {
             (async () => {
                 try {
                     const currentPoints = await refreshPoints(auth.token);
-                    const userResponse = await fetch(
-                        `${import.meta.env.VITE_API_URL}/users/${auth.user.id}`,
-                        {
-                            headers: {
-                                Authorization: `Token ${auth.token}`,
-                            },
-                        }
-                    );
-
-                    if (!userResponse.ok) {
-                        throw new Error("Unable to refresh streak data.");
-                    }
-
-                    const userData = await userResponse.json();
-                    const freshPulses = userData?.logged_pulses ?? [];
+                    const freshPulses = freshUser?.logged_pulses ?? [];
                     const streakCount = calculateWeeklyStreak(freshPulses);
                     const bonusPoints = streakCount > 0 && streakCount % 3 === 0 ? 20 : 0;
                     const nextPoints = currentPoints + 10 + bonusPoints;

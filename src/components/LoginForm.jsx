@@ -35,13 +35,10 @@ function LoginForm() {
 
             const token = data.token;
 
-            // 🔹 2. Save token FIRST
+            // 🔹 2. Save token for future reloads
             window.localStorage.setItem("token", token);
 
-            // 🔹 3. Add token to context early
-            setAuth({ token });
-
-            // 🔹 4. Fetch user basic data from /me
+            // 🔹 3. Fetch user basic data from /me
             const meRes = await fetch(`${import.meta.env.VITE_API_URL}/me/`, {
                 headers: { Authorization: `Token ${token}` },
             });
@@ -49,7 +46,7 @@ function LoginForm() {
             const meData = await meRes.json();
             const userId = meData.id;
 
-            // 🔹 5. Fetch full user info (with logs) from /users/:id
+            // 🔹 4. Fetch full user info (with logs) from /users/:id
             const fullUserRes = await fetch(
                 `${import.meta.env.VITE_API_URL}/users/${userId}`,
                 {
@@ -59,10 +56,10 @@ function LoginForm() {
 
             const userData = await fullUserRes.json();
 
-            // Update auth context with full user data
+            // Update auth context once with the complete user payload.
             setAuth({ token, user: userData });
 
-            // 🔹 6. Manager redirect
+            // 🔹 5. Manager redirect
             if (userData.is_staff) {
                 navigate("/manager-dashboard");
                 return;

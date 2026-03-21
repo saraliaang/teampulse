@@ -10,17 +10,33 @@ export const AuthProvider = (props) => {
         user: null,
     });
     const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         async function loadUser() {
             if (!auth.token) {
                 setLoading(false);
-                console.log("⚠️ No token found in localStorage — skipping user restore.");
                 return;
             }
 
+            // Skip the restore call after login when user data is already present.
+            if (auth.user) {
+                setLoading(false);
+                return;
+            }
+
+            setLoading(true);
+
             try {
-                const res = await axios.get(
+                const meRes = await axios.get(
                     `${import.meta.env.VITE_API_URL}/me/`,
+                    {
+                        headers: {
+                            Authorization: `Token ${auth.token}`,
+                        },
+                    }
+                );
+                const userRes = await axios.get(
+                    `${import.meta.env.VITE_API_URL}/users/${meRes.data.id}`,
                     {
                         headers: {
                             Authorization: `Token ${auth.token}`,
@@ -29,24 +45,18 @@ export const AuthProvider = (props) => {
                 );
                 setAuth((prev) => ({
                     ...prev,
-                    user: res.data,
+                    user: userRes.data,
                 }));
-
-                console.log("✅ Auth recorded successfully!");
-                console.log("🔑 Token:", auth.token);
-                console.log("👤 User:", res.data);
-
             } catch (err) {
                 console.error("Failed to restore user:", err);
                 setAuth((prev) => ({ ...prev, user: null }));
-
             } finally {
                 setLoading(false);
             }
         }
 
         loadUser();
-    }, [auth.token]);
+    }, [auth.token, auth.user]);
 
     return (
         <AuthContext.Provider value={{ auth, setAuth, loading }}>
